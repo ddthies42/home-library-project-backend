@@ -8,7 +8,7 @@ function HandleError(response, reason, message, code){
 }
 
 //Gets all the books
-router.get('/api/books', (request, response, next)=>{
+router.get('/', (request, response, next)=>{
     let name = request.query['name'];
     if (name){
         BookSchema
