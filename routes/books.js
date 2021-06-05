@@ -59,7 +59,7 @@ router.post('/api/books', (request, response, next) =>{
             year: bookJSON.year || 0,
             author: bookJSON.author,
             price : bookJSON.price || 0,
-            hardCover: bookJSON.hardCover || 'No'
+            hardCover: bookJSON.hardCover || true
         });
         book.save( (error) => {
             if (error){
