@@ -34,7 +34,7 @@ router.get('/', (request, response, next)=>{
 });
 
 //Gets the book with the given id (catch error of id not found)
-router.get('/api/books/:id', (request, response, next) =>{
+router.get('/:id', (request, response, next) =>{
     BookSchema
         .findById({"_id": request.params.id}, (error, result) => {
             if (error){
@@ -48,7 +48,7 @@ router.get('/api/books/:id', (request, response, next) =>{
 });
 
 //Insert a book
-router.post('/api/books', (request, response, next) =>{
+router.post('/', (request, response, next) =>{
     let bookJSON = request.body;
     if (!bookJSON.author || !bookJSON.title)
         HandleError(response, 'Missing Information', 'Form Data Missing', 500);
@@ -72,7 +72,7 @@ router.post('/api/books', (request, response, next) =>{
 });
 
 //Modifies a book with the given id
-router.patch('api/books/:id', (request, response, next) => {
+router.patch('/:id', (request, response, next) => {
     BookSchema
         .findById(request.params.id, (error, result) => {
             if (error) {
@@ -97,7 +97,7 @@ router.patch('api/books/:id', (request, response, next) => {
 });
 
 //Deletes a book with the given id
-router.delete('/api/books/:id', (request, response, next) => {
+router.delete('/:id', (request, response, next) => {
     BookSchema
         .findById(request.params.id, (error, result)=>{
             if (error) {
