@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // To be able to use the API everywhere
 app.use((request, response, next) => {
   response.header('Access-Control-Allow-Origin', '*');
+  response.header('Access-Control-Allow-Methods','GET, POST, PUT. PATCH, DELETE');
   next();
 });
 

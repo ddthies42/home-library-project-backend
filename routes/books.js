@@ -58,7 +58,7 @@ router.post('/', (request, response, next) =>{
             description: bookJSON.description,
             year: bookJSON.year || 0,
             author: bookJSON.author,
-            price : bookJSON.price,
+            price : bookJSON.price || 0,
             hardCover: bookJSON.hardCover || true
         });
         book.save( (error) => {
