@@ -11,8 +11,8 @@ mongoose
         console.log('Connection Error: ${err.message}');
     });
 
-const database = mongoose.connection;
+const db = mongoose.connection;
 
-database.on('error', console.error.bind(console, 'MongoDB Connection Error'));
+db.on('error', console.error.bind(console, 'MongoDB Connection Error'));
 
-module.exports = database;
+module.exports = db;
